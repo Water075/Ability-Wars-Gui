@@ -49,7 +49,7 @@ Tab:AddToggle({
 					PunchesLabel:Set("Punches: " .. punches)
 					PlayersLabel:Set("Players: " .. players .. "/18")
 					AbilityLabel:Set("Ability: " .. ability)
-					task.wait(1)
+					task.wait(0.4)
 				end
 			end)
 		end
