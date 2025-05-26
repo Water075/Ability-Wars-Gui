@@ -92,7 +92,7 @@ Tab:AddSlider({
 	Increment = 1,
 	ValueName = "",
 	Callback = function(thevlaue)
-local PUNCHAURARANGE = thevlaue
+PUNCHAURARANGE = thevlaue
 	end    
 })
 
