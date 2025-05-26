@@ -33,6 +33,7 @@ local Section = Tab:AddSection({
 local PunchesLabel = Tab:AddLabel("Punches:")
 local PlayersLabel = Tab:AddLabel("Players: ?/18")
 local AbilityLabel = Tab:AddLabel("Ability:")
+
 local updating = false
 Tab:AddToggle({
 	Name = "UpdateInfo",
