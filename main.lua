@@ -141,7 +141,27 @@ Tab:AddToggle({
         end
     end
 })
+--
+local autoattackbossesstate = false
 
+Tab:AddToggle({
+    Name = "AutoAttackBosses",
+    Default = false,
+    Callback = function(AutoAttackBoss)
+        autoattackbossesstate = AutoAttackBoss
+        while autoattackbossesstate do
+            local args = {
+                314159265359,
+                workspace:WaitForChild("Cat"),
+                vector.create(-11.640410423278809, 7.153537273406982, -17.10407829284668),
+                10,
+                workspace:WaitForChild("Cat"):WaitForChild("HumanoidRootPart")
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote Events"):WaitForChild("Punch"):FireServer(unpack(args))
+            task.wait()
+        end
+    end    
+})
 --
 local Section = Tab:AddSection({
 	Name = "Utility"
@@ -185,6 +205,40 @@ Tab:AddButton({
 game.Players.LocalPlayer.Character.Humanoid.Health = -1
   	end    
 })
+-- misc
+local Tab = Window:MakeTab({
+	Name = "misc",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+    Name = "Collect All Items",
+    Callback = function()
+        local workspace = game:GetService("Workspace")
+        local players = game:GetService("Players")
+        local localPlayer = players.LocalPlayer
+        local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+        local hrp = character:WaitForChild("HumanoidRootPart")
+
+        local items = {
+            workspace["Map Items"].Burger,
+            workspace["Map Items"].Cake,
+            workspace["Map Items"].Crystal,
+            workspace["Map Items"].Gel,
+            workspace["Map Items"].Key,
+            workspace["Map Items"].Web,
+            workspace["Map Items"].Moss,
+        }
+
+        for _, item in ipairs(items) do
+            firetouchinterest(hrp, item, 0)
+            firetouchinterest(hrp, item, 1)
+            wait(0.1)
+        end
+    end    
+})
+
 
 -- credits
 local Tab = Window:MakeTab({
