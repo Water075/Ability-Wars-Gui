@@ -32,6 +32,29 @@ Tab:AddToggle({
 		end
 	end
 })
+-- toggle2 for auto entering arena
+Tab:AddToggle({
+	Name = "AutoEnterArena",
+	Default = false,
+	Callback = function(coolassenter)
+		while coolassenter == true do
+				local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local rootPart = character:WaitForChild("HumanoidRootPart")
+local portal = workspace.Portals["Arena Frame"].Portal
+
+firetouchinterest(rootPart, portal, 0)
+task.wait(0.1)
+firetouchinterest(rootPart, portal, 1)
+			end
+	end    
+})
+
+--[[
+Name = <string> - The name of the toggle.
+Default = <bool> - The default value of the toggle.
+Callback = <function> - The function of the toggle.
+]]
 --
 
 -- required
