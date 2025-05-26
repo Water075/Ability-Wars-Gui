@@ -1,3 +1,11 @@
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
+
+if game.PlaceId ~= 8260276694 then
+    return
+end
+
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
 local executorName = identifyexecutor()
 local PUNCHAURARANGE = 3 -- default
