@@ -4,7 +4,7 @@ local executorName = identifyexecutor()
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "Thanks for using the script",
     Text = "Made by water.5202",
-    Duration = 5 -- duration in seconds
+    Duration = 5
 })
 
 local Window = OrionLib:MakeWindow({
@@ -104,7 +104,7 @@ Tab:AddToggle({
 							PunchEvent:FireServer(unpack(args))
 						end
 					end
-					task.wait(0.0001) -- small delay to prevent lag/kick
+					task.wait(0.1) -- small delay to prevent lag/kick
 				end
 			end)
 		end
