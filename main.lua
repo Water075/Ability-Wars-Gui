@@ -34,6 +34,8 @@ local Section = Tab:AddSection({
 local PunchesLabel = Tab:AddLabel("Punches:")
 local PlayersLabel = Tab:AddLabel("Players: ?/18")
 local AbilityLabel = Tab:AddLabel("Ability:")
+local PunchAuraRange = Tab:AddLabel("PunchRange:")
+
 local updating = false
 Tab:AddToggle({
 	Name = "UpdateInfo",
@@ -49,6 +51,7 @@ Tab:AddToggle({
 					PunchesLabel:Set("Punches: " .. punches)
 					PlayersLabel:Set("Players: " .. players .. "/18")
 					AbilityLabel:Set("Ability: " .. ability)
+					PunchAuraRange:Set("PunchRange " .. psarange .. "/15")
 					task.wait(1)
 				end
 			end)
@@ -103,7 +106,7 @@ Tab:AddToggle({
 								314159265359,
 								player.Character,
 								player.Character.HumanoidRootPart.Position,
-								5, -- distance??
+								rangeslider, -- distance??
 								player.Character.HumanoidRootPart
 							}
 							PunchEvent:FireServer(unpack(args))
@@ -125,7 +128,7 @@ Tab:AddSlider({
 	Increment = 1,
 	ValueName = "range",
 	Callback = function(rangeslider)
-			local psarange = rangeslider
+	local psarange = rangeslider
 	end    
 })
 --
