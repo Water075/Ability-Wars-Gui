@@ -141,7 +141,27 @@ Tab:AddToggle({
         end
     end
 })
+--
+local autoattackbossesstate = false
 
+Tab:AddToggle({
+    Name = "AutoAttackBosses",
+    Default = false,
+    Callback = function(AutoAttackBoss)
+        autoattackbossesstate = AutoAttackBoss
+        while autoattackbossesstate do
+            local args = {
+                314159265359,
+                workspace:WaitForChild("Cat"),
+                vector.create(-11.640410423278809, 7.153537273406982, -17.10407829284668),
+                10,
+                workspace:WaitForChild("Cat"):WaitForChild("HumanoidRootPart")
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote Events"):WaitForChild("Punch"):FireServer(unpack(args))
+            task.wait()
+        end
+    end    
+})
 --
 local Section = Tab:AddSection({
 	Name = "Utility"
