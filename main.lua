@@ -51,7 +51,7 @@ Tab:AddToggle({
 					PunchesLabel:Set("Punches: " .. punches)
 					PlayersLabel:Set("Players: " .. players .. "/18")
 					AbilityLabel:Set("Ability: " .. ability)
-					PunchAuraRange:Set("PunchRange " .. psarange .. "/15")
+					PunchAuraRange:Set("PunchRange " .. psaslider .. "/15")
 					task.wait(1)
 				end
 			end)
@@ -106,7 +106,7 @@ Tab:AddToggle({
 								314159265359,
 								player.Character,
 								player.Character.HumanoidRootPart.Position,
-								rangeslider, -- distance??
+								psaslider, -- distance??
 								player.Character.HumanoidRootPart
 							}
 							PunchEvent:FireServer(unpack(args))
@@ -128,7 +128,7 @@ Tab:AddSlider({
 	Increment = 1,
 	ValueName = "range",
 	Callback = function(rangeslider)
-	local psarange = rangeslider
+	local psaslider = rangeslider
 	end    
 })
 --
