@@ -71,13 +71,15 @@ Tab:AddToggle({
 	end
 })
 local psa = false
+local psaThread
 Tab:AddToggle({
 	Name = "PunchAura",
 	Default = false,
 	Callback = function(punchara)
 		psa = punchara
 		if psa then
-			task.spawn(function()
+			if psaThread and task.wait(0) then return end
+			psaThread = task.spawn(function()
 				local ReplicatedStorage = game:GetService("ReplicatedStorage")
 				local Players = game:GetService("Players")
 				local LocalPlayer = Players.LocalPlayer
@@ -235,4 +237,3 @@ Tab:AddLabel("Script Version 1.0.0")
 Tab:AddLabel("Thanks for using this script :D")
 Tab:AddLabel("Don't use slap aura in large groups because of ban")
 OrionLib:Init()
-
