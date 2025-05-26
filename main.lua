@@ -57,6 +57,24 @@ Tab:AddToggle({
 		end
 	end
 })
+--
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local PunchEvent = ReplicatedStorage:WaitForChild("Remote Events"):WaitForChild("Punch")
+
+for _, player in pairs(Players:GetPlayers()) do
+    if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+        local args = {
+            314159265359,
+            player.Character,
+            Vector3.new(126.53208923339844, 7.153537273406982, -28.148670196533203), -- Replace with relevant position
+            2.064666748046875, -- Some hit power?
+            player.Character["HumanoidRootPart"]
+        }
+        PunchEvent:FireServer(unpack(args))
+    end
+end
 
 -- required
 OrionLib:Init()
