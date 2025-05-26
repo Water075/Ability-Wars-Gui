@@ -13,17 +13,24 @@ local Section = Tab:AddSection({
 })
 
 --
-local Punches = Tab:AddLabel("Punches:")
+local PunchesLabel = Tab:AddLabel("Punches:")
+
+local updating = false
 Tab:AddToggle({
-	Name = "UpdateSlaps",
+	Name = "UpdatePunches",
 	Default = false,
-	Callback = function(thecoolestvalue)
-		while thecoolestvalue do
-				local Punches = = "Punches: " .. game:GetService("Players").LocalPlayer.leaderstats.Punches.Value
-			Slaps:Set(Punches)
-			task.wait(1) -- Add a short wait to prevent freezing the game
+	Callback = function(state)
+		updating = state
+		if updating then
+			task.spawn(function()
+				while updating do
+					local punches = game:GetService("Players").LocalPlayer.leaderstats.Punches.Value
+					PunchesLabel:Set("Punches: " .. punches)
+					task.wait(1)
+				end
+			end)
 		end
-	end    
+	end
 })
 --
 
