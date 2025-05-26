@@ -9,10 +9,11 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 
 local Window = OrionLib:MakeWindow({
     Name = "AbilityWarsFucker - " ..executorName,
+    IntroEnabled = false,
     HidePremium = false,
     SaveConfig = false,
     ConfigFolder = "wooow",
-    IntroText = "loading sexy script :3"
+    IntroText = "PlaceHolder"
 })
 
 
@@ -29,7 +30,7 @@ local Section = Tab:AddSection({
 
 --
 local PunchesLabel = Tab:AddLabel("Punches:")
-local PlayersLabel = Tab:AddLabel("Players:")
+local PlayersLabel = Tab:AddLabel("Players: ?/18")
 local AbilityLabel = Tab:AddLabel("Ability:")
 local updating = false
 Tab:AddToggle({
@@ -44,7 +45,7 @@ Tab:AddToggle({
 					local punches = game:GetService("Players").LocalPlayer.leaderstats.Punches.Value
 					local ability = game:GetService("Players").LocalPlayer.leaderstats.Ability.Value
 					PunchesLabel:Set("Punches: " .. punches)
-					PlayersLabel:Set("Players: " .. players)
+					PlayersLabel:Set("Players: " .. players"/18")
 					AbilityLabel:Set("Ability: " .. ability)
 					task.wait(1)
 				end
