@@ -1,5 +1,6 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
 local executorName = identifyexecutor()
+local PUNCHAURARANGE = 3 -- default
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "Thanks for using the script",
@@ -80,6 +81,20 @@ Tab:AddToggle({
 	end
 })
 --
+
+Tab:AddSlider({
+	Name = "PunchAuraRange",
+	Min = 0,
+	Max = 15,
+	Default = 3,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "",
+	Callback = function(thevlaue)
+local PUNCHAURARANGE = thevlaue
+	end    
+})
+
 local psa = false
 
 Tab:AddToggle({
@@ -101,7 +116,7 @@ Tab:AddToggle({
 								314159265359,
 								player.Character,
 								player.Character.HumanoidRootPart.Position,
-								5, -- distance??
+								PUNCHAURARANGE, -- distance??
 								player.Character.HumanoidRootPart
 							}
 							PunchEvent:FireServer(unpack(args))
