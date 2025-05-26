@@ -33,7 +33,7 @@ local PlayersLabel = Tab:AddLabel("Players:")
 
 local updating = false
 Tab:AddToggle({
-	Name = "UpdatePunches",
+	Name = "UpdateInfo",
 	Default = false,
 	Callback = function(state)
 		updating = state
@@ -104,7 +104,7 @@ Tab:AddToggle({
 							PunchEvent:FireServer(unpack(args))
 						end
 					end
-					task.wait(0.5) -- small delay to prevent lag/kick
+					task.wait(0.0001) -- small delay to prevent lag/kick
 				end
 			end)
 		end
