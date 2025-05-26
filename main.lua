@@ -179,6 +179,13 @@ OrionLib:Destroy()
   	end    
 })
 
+Tab:AddButton({
+	Name = "Reset",
+	Callback = function()
+game.Players.LocalPlayer.Character.Humanoid.Health = -1
+  	end    
+})
+
 -- credits
 local Tab = Window:MakeTab({
 	Name = "credits",
