@@ -129,6 +129,16 @@ Tab:AddButton({
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
   	end    
 })
+--
+Tab:AddButton({
+	Name = "Rejoin",
+	Callback = function()
+		local TeleportService = game:GetService("TeleportService")
+local Players = game:GetService("Players")
+
+TeleportService:Teleport(game.PlaceId, Players.LocalPlayer)
+  	end    
+})
 
 -- required
 OrionLib:Init()
