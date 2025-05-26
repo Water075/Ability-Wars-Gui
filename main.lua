@@ -40,7 +40,7 @@ Tab:AddToggle({
 		if updating then
 			task.spawn(function()
 				while updating do
-					local players = game:GetService("Players"):GetPlayers()
+					local players = #game:GetService("Players"):GetPlayers()
 					local punches = game:GetService("Players").LocalPlayer.leaderstats.Punches.Value
 					PunchesLabel:Set("Punches: " .. punches)
 					PlayersLabel:Set("Players: " .. players)
