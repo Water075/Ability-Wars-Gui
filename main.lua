@@ -106,7 +106,7 @@ Tab:AddToggle({
 							PunchEvent:FireServer(unpack(args))
 						end
 					end
-					task.wait(0.1) -- small delay to prevent lag/kick
+					task.wait(0.3) -- small delay to prevent lag/kick
 				end
 			end)
 		end
