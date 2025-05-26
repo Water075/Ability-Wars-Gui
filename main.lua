@@ -8,6 +8,9 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local Section = 1:AddSection({
+local Section = Tab:AddSection({
 	Name = "Blatant Stuff (Admins are somewhat active be careful"
 })
+
+-- required
+OrionLib:Init()
