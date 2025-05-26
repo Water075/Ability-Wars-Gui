@@ -1,6 +1,12 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
 local executorName = identifyexecutor()
 
+game:GetService("StarterGui"):SetCore("SendNotification", {
+    Title = "Thanks for using the script",
+    Text = "Made by water.5202",
+    Duration = 5 -- duration in seconds
+})
+
 local Window = OrionLib:MakeWindow({
     Name = "AbilityWarsFucker - " ..executorName,
     HidePremium = false,
