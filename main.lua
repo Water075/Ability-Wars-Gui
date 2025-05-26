@@ -14,6 +14,17 @@ local Section = Tab:AddSection({
 
 --
 local Slaps = Tab:AddLabel("Slaps:")
+Tab:AddToggle({
+	Name = "UpdateSlaps",
+	Default = false,
+	Callback = function(thecoolestvalue)
+		while thecoolestvalue do
+			Slaps.Text = "Slaps: " .. game:GetService("Players").LocalPlayer.leaderstats.Punches.Value
+			task.wait(1) -- Add a short wait to prevent freezing the game
+		end
+	end    
+})
+--
 
 -- required
 OrionLib:Init()
