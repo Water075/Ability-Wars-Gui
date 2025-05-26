@@ -45,7 +45,7 @@ Tab:AddToggle({
 					local ability = game:GetService("Players").LocalPlayer.leaderstats.Ability.Value
 					PunchesLabel:Set("Punches: " .. punches)
 					PlayersLabel:Set("Players: " .. players)
-					AbilityLabel:Set("Ability: ".. ability)
+					AbilityLabel:Set("Ability: " .. ability)
 					task.wait(1)
 				end
 			end)
