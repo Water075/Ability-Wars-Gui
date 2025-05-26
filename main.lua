@@ -174,23 +174,51 @@ Tab:AddToggle({
     Default = false,
     Callback = function(AutoAttackBoss)
         autoattackbossesstate = AutoAttackBoss
+
+        local function waitForChildWithTimeout(parent, childName, timeout)
+            local timer = 0
+            local interval = 0.1
+            while not parent:FindFirstChild(childName) and timer < timeout do
+                task.wait(interval)
+                timer = timer + interval
+            end
+            return parent:FindFirstChild(childName)
+        end
+
+        local cat = waitForChildWithTimeout(workspace, "Cat", 5)
+        local treeLord = waitForChildWithTimeout(workspace, "Tree Lord", 5)
+
+        if not cat or not treeLord then
+            warn("Cat or Tree Lord not found.")
+            return
+        end
+
+        local catHRP = waitForChildWithTimeout(cat, "HumanoidRootPart", 5)
+        local treeLordRightLeg = waitForChildWithTimeout(treeLord, "Right Leg", 5)
+
+        if not catHRP or not treeLordRightLeg then
+            warn("Required parts not found.")
+            return
+        end
+
         while autoattackbossesstate do
-            local args = {
+            local args1 = {
                 314159265359,
-                workspace:WaitForChild("Cat"),
+                cat,
                 vector.create(-11.640410423278809, 7.153537273406982, -17.10407829284668),
                 100,
-                workspace:WaitForChild("Cat"):WaitForChild("HumanoidRootPart")
+                catHRP
             }
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote Events"):WaitForChild("Punch"):FireServer(unpack(args))
-	local args = {
-	314159265359,
-	workspace:WaitForChild("Tree Lord"),
-	vector.create(0.21670854091644287, 7.1301350593566895, 3.293504238128662),
-	100,
-	workspace:WaitForChild("Tree Lord"):WaitForChild("Right Leg")
-}
-game:GetService("ReplicatedStorage"):WaitForChild("Remote Events"):WaitForChild("Punch"):FireServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote Events"):WaitForChild("Punch"):FireServer(unpack(args1))
+
+            local args2 = {
+                314159265359,
+                treeLord,
+                vector.create(0.21670854091644287, 7.1301350593566895, 3.293504238128662),
+                100,
+                treeLordRightLeg
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote Events"):WaitForChild("Punch"):FireServer(unpack(args2))
 
             task.wait()
         end
