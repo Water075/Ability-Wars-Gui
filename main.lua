@@ -2,7 +2,7 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jen
 local executorName = identifyexecutor()
 
 local Window = OrionLib:MakeWindow({
-    Name = "AbilityWarsFucker -"...executorName,
+    Name = "AbilityWarsFucker - "...executorName,
     HidePremium = false,
     SaveConfig = false,
     ConfigFolder = "wooow",
