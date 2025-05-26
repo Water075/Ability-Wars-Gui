@@ -37,7 +37,7 @@ Tab:AddToggle({
 	Name = "AutoEnterArena",
 	Default = false,
 	Callback = function(coolassenter)
-		while coolassenter == true do
+		while coolassenter() == true do
 				local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local rootPart = character:WaitForChild("HumanoidRootPart")
