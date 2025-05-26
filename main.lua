@@ -101,11 +101,22 @@ Tab:AddToggle({
 	end    
 })
 --
+local Section = Tab:AddSection({
+	Name = "Utility"
+})
+
 Tab:AddButton({
 	Name = "Kick Yourself",
 	Callback = function()
 			local player = game.Players.LocalPlayer
-			game:GetService("Players").LocalPlayer:Kick("Kicked"..player.Name)
+			game:GetService("Players").LocalPlayer:Kick("Kicked "..player.Name)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "IY",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
   	end    
 })
 
