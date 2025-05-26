@@ -170,6 +170,14 @@ local Players = game:GetService("Players")
 TeleportService:Teleport(game.PlaceId, Players.LocalPlayer)
   	end    
 })
+
+Tab:AddButton({
+	Name = "Unload UI",
+	Callback = function()
+OrionLib:Destroy()
+  	end    
+})
+
 -- credits
 local Tab = Window:MakeTab({
 	Name = "credits",
