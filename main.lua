@@ -3,6 +3,7 @@ if not game:IsLoaded() then
 end
 
 if game.PlaceId ~= 8260276694 then
+	warn("This script was intended to be loaded in abilitywars, script aborted")
     return
 end
 
