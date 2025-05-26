@@ -58,38 +58,39 @@ Tab:AddToggle({
 	end
 })
 --
-local punching = false
+local psa = false
 
 Tab:AddToggle({
 	Name = "PunchAura",
 	Default = false,
-	Callback = function(state)
-		punching = state
-		if punching then
+	Callback = function(punchara)
+		psa = punchara
+		if psa then
 			task.spawn(function()
 				local ReplicatedStorage = game:GetService("ReplicatedStorage")
 				local Players = game:GetService("Players")
 				local LocalPlayer = Players.LocalPlayer
 				local PunchEvent = ReplicatedStorage:WaitForChild("Remote Events"):WaitForChild("Punch")
 
-				while punching do
+				while psa do
 					for _, player in pairs(Players:GetPlayers()) do
 						if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
 							local args = {
 								314159265359,
 								player.Character,
-								player.Character.HumanoidRootPart.Position, -- More realistic position
+								player.Character.HumanoidRootPart.Position,
 								2.064666748046875,
 								player.Character.HumanoidRootPart
 							}
 							PunchEvent:FireServer(unpack(args))
 						end
 					end
-					task.wait(0.5) -- Add a delay so you don't lag or crash
+					task.wait(0.5) -- small delay to prevent lag/kick
 				end
 			end)
 		end
 	end    
 })
+
 -- required
 OrionLib:Init()
