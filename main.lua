@@ -112,6 +112,24 @@ Tab:AddToggle({
 		end
 	end    
 })
+
+Tab:AddButton({
+	Name = "AntiVoid",
+	Callback = function()
+game:GetService("Workspace"):FindFirstChild("AntiVoidPart"):Destroy()
+wait(0.5)
+local part = Instance.new("Part")
+part.Name = "AntiVoidPart"
+part.Parent = game:GetService("Workspace")
+part.Size = Vector3.new(495, 1, 504)
+part.Position = Vector3.new(3.31643677, 1.94888735, -15.8945923)
+part.Rotation = Vector3.new(0, 0, 0)
+part.Transparency = 0.5
+part.Anchored = true
+part.Parent = workspace
+  	end    
+})
+
 --
 local Section = Tab:AddSection({
 	Name = "Utility"
