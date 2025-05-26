@@ -170,6 +170,16 @@ local Players = game:GetService("Players")
 TeleportService:Teleport(game.PlaceId, Players.LocalPlayer)
   	end    
 })
+-- credits
+local Tab = Window:MakeTab({
+	Name = "credits",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
+Tab:AddLabel("Made by water.5202")
+Tab:AddLabel("Script Version 1.0.0")
+Tab:AddLabel("Thanks for using this script :D")
+Tab:AddLabel("Don't use slap aura in large groups because of ban")
 -- required
 OrionLib:Init()
