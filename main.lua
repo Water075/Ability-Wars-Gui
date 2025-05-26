@@ -35,7 +35,7 @@ local AbilityLabel = Tab:AddLabel("Ability:")
 local updating = false
 Tab:AddToggle({
 	Name = "UpdateInfo",
-	Default = false,
+	Default = true,
 	Callback = function(state)
 		updating = state
 		if updating then
