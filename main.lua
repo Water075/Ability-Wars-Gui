@@ -30,7 +30,7 @@ local Section = Tab:AddSection({
 --
 local PunchesLabel = Tab:AddLabel("Punches:")
 local PlayersLabel = Tab:AddLabel("Players:")
-
+local AbilityLabel = Tab:AddLabel("Ability:"
 local updating = false
 Tab:AddToggle({
 	Name = "UpdateInfo",
@@ -42,8 +42,10 @@ Tab:AddToggle({
 				while updating do
 					local players = #game:GetService("Players"):GetPlayers()
 					local punches = game:GetService("Players").LocalPlayer.leaderstats.Punches.Value
+					local ability = game:GetService("Players").LocalPlayer.leaderstats.Ability
 					PunchesLabel:Set("Punches: " .. punches)
 					PlayersLabel:Set("Players: " .. players)
+					AbilityLabel:Set("Ability: ".. ability)
 					task.wait(1)
 				end
 			end)
