@@ -13,13 +13,14 @@ local Section = Tab:AddSection({
 })
 
 --
-local Slaps = Tab:AddLabel("Slaps:")
+local Punches = Tab:AddLabel("Punches:")
 Tab:AddToggle({
 	Name = "UpdateSlaps",
 	Default = false,
 	Callback = function(thecoolestvalue)
 		while thecoolestvalue do
-			Slaps.Text = "Slaps: " .. game:GetService("Players").LocalPlayer.leaderstats.Punches.Value
+				local Punches = = "Punches: " .. game:GetService("Players").LocalPlayer.leaderstats.Punches.Value
+			Slaps:Set(Punches)
 			task.wait(1) -- Add a short wait to prevent freezing the game
 		end
 	end    
