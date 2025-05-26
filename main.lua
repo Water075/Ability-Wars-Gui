@@ -125,7 +125,7 @@ Tab:AddToggle({
                 local part = Instance.new("Part")
                 part.Name = "AntiVoidPart"
                 part.Parent = workspace
-                part.Size = Vector3.new(495, 1, 504)
+                part.Size = Vector3.new(1000, 1, 1000)
                 part.Position = Vector3.new(3.31643677, 1.94888735, -15.8945923)
                 part.Rotation = Vector3.new(0, 0, 0)
                 part.Transparency = 0.5
