@@ -113,23 +113,31 @@ Tab:AddToggle({
 	end    
 })
 
-Tab:AddButton({
-    Name = "AntiVoid",
-    Callback = function()
-        local oldvoid = workspace:FindFirstChild("AntiVoidPart")
-        if oldvoid then
-            oldvoid:Destroy()
-            wait(0.5)
+Tab:AddToggle({
+    Name = "AntiVoidToggle",
+    Default = false,
+    Callback = function(AntiVoid)
+        local workspace = game:GetService("Workspace")
+        local existingPart = workspace:FindFirstChild("AntiVoidPart")
+
+        if AntiVoid then
+            if not existingPart then
+                local part = Instance.new("Part")
+                part.Name = "AntiVoidPart"
+                part.Parent = workspace
+                part.Size = Vector3.new(495, 1, 504)
+                part.Position = Vector3.new(3.31643677, 1.94888735, -15.8945923)
+                part.Rotation = Vector3.new(0, 0, 0)
+                part.Transparency = 0.5
+                part.Anchored = true
+                part.CanCollide = true
+                part.Material = Enum.Material.SmoothPlastic
+            end
+        else
+            if existingPart then
+                existingPart:Destroy()
+            end
         end
-        
-        local part = Instance.new("Part")
-        part.Name = "AntiVoidPart"
-        part.Parent = workspace
-        part.Size = Vector3.new(495, 1, 504)
-        part.Position = Vector3.new(3.31643677, 1.94888735, -15.8945923)
-        part.Rotation = Vector3.new(0, 0, 0)
-        part.Transparency = 0.5
-        part.Anchored = true
     end
 })
 
