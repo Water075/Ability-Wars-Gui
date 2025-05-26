@@ -1,6 +1,8 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
 local executorName = identifyexecutor()
-
+-- values for slider
+local psaslider = 1
+--
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "Thanks for using the script",
     Text = "Made by water.5202",
@@ -115,7 +117,7 @@ Tab:AddToggle({
 })
 --slider for range
 Tab:AddSlider({
-	Name = "Slider",
+	Name = "RangeValue",
 	Min = 1,
 	Max = 20,
 	Default = 5,
@@ -123,7 +125,7 @@ Tab:AddSlider({
 	Increment = 1,
 	ValueName = "range",
 	Callback = function(rangeslider)
-			local range = 1
+			local psarange = rangeslider
 	end    
 })
 --
