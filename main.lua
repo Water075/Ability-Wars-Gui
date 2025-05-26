@@ -101,5 +101,13 @@ Tab:AddToggle({
 	end    
 })
 
+Tab:AddButton({
+	Name = "Kick Yourself",
+	Callback = function()
+			local player = game.Players.LocalPlayer
+			game:GetService("Players").LocalPlayer:Kick("Kicked"..player.Name)
+  	end    
+})
+
 -- required
 OrionLib:Init()
