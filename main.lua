@@ -113,7 +113,20 @@ Tab:AddToggle({
 		end
 	end    
 })
-
+--slider for range
+Tab:AddSlider({
+	Name = "Slider",
+	Min = 1,
+	Max = 20,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "range",
+	Callback = function(rangeslider)
+			local range = 1
+	end    
+})
+--
 Tab:AddToggle({
     Name = "AntiVoidToggle",
     Default = false,
