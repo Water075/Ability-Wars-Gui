@@ -1,8 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
-local executorName = "Unknown Executor"
-if type(identifyexecutor) == "function" then
-    executorName = tostring(identifyexecutor())
-end
+local executorName = identifyexecutor()
 
 local Window = OrionLib:MakeWindow({
     Name = "AbilityWarsFucker - " .. executorName,
