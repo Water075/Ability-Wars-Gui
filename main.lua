@@ -179,10 +179,19 @@ Tab:AddToggle({
                 314159265359,
                 workspace:WaitForChild("Cat"),
                 vector.create(-11.640410423278809, 7.153537273406982, -17.10407829284668),
-                10,
+                100,
                 workspace:WaitForChild("Cat"):WaitForChild("HumanoidRootPart")
             }
             game:GetService("ReplicatedStorage"):WaitForChild("Remote Events"):WaitForChild("Punch"):FireServer(unpack(args))
+	local args = {
+	314159265359,
+	workspace:WaitForChild("Tree Lord"),
+	vector.create(0.21670854091644287, 7.1301350593566895, 3.293504238128662),
+	100,
+	workspace:WaitForChild("Tree Lord"):WaitForChild("Right Leg")
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote Events"):WaitForChild("Punch"):FireServer(unpack(args))
+
             task.wait()
         end
     end    
