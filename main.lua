@@ -9,8 +9,11 @@ local Tab = Window:MakeTab({
 })
 
 local Section = Tab:AddSection({
-	Name = "Blatant Stuff (Admins are somewhat active be careful"
+	Name = "Blatant Stuff (Admins are somewhat active be careful)"
 })
+
+--
+local Slaps = Tab:AddLabel("Slaps:")
 
 -- required
 OrionLib:Init()
