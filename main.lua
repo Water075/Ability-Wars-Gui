@@ -23,6 +23,7 @@ local Section = Tab:AddSection({
 
 --
 local PunchesLabel = Tab:AddLabel("Punches:")
+local PlayersLabel = Tab:AddLabel("Players:")
 
 local updating = false
 Tab:AddToggle({
@@ -33,14 +34,17 @@ Tab:AddToggle({
 		if updating then
 			task.spawn(function()
 				while updating do
+					local players = game:GetService("Players"):GetPlayers()
 					local punches = game:GetService("Players").LocalPlayer.leaderstats.Punches.Value
 					PunchesLabel:Set("Punches: " .. punches)
+					PlayersLabel:Set("Players: " .. players)
 					task.wait(1)
 				end
 			end)
 		end
 	end
 })
+
 -- toggle2 for auto entering arena
 local autoEnter = false
 
