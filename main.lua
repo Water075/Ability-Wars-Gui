@@ -335,7 +335,7 @@ Tab:AddButton({
     Callback = function()
         local hrp = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
         if hrp then
-            hrp.CFrame = CFrame.new(990.469788, 65.876236, 29967.1836)
+            hrp.CFrame = CFrame.new(-87.1038666, 19.8535614, 126.390503)
 			end
     end
 })
