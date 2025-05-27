@@ -319,7 +319,19 @@ Tab:AddButton({
     end    
 })
 
-
+Tab:AddButton({
+	Name = "Teleport for mushroom badge",
+	Callback = function()
+			local newpos = 130.931061, 8.0490036, -126.418747
+			local currentpos = nil
+			local hrp = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+			if hrp then
+				currentpos = hrp.CFrame
+			hrp.CFrame = CFrame.new(130.931061, 8.0490036, -126.418747)
+				wait(0.7)
+			hrp.CFrame = currentpos.CFrame
+  	end    
+})
 -- credits
 local Tab = Window:MakeTab({
 	Name = "credits",
