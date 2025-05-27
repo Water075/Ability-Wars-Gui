@@ -3,7 +3,11 @@ if not game:IsLoaded() then
 end
 
 if game.PlaceId ~= 8260276694 then
-	warn("This script was intended to be loaded in abilitywars, script aborted")
+	game:GetService("StarterGui"):SetCore("SendNotification", {
+    Title = "Error!",
+    Text = "Script was intended to be loaded in ability wars, script aborted.",
+    Duration = 5
+})
     return
 end
 
