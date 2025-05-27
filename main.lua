@@ -18,7 +18,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 })
 
 local Window = OrionLib:MakeWindow({
-    Name = "AbilityWarsFucker - " ..executorName,
+    Name = "AbilityWars - " ..executorName,
     IntroEnabled = false,
     HidePremium = false,
     SaveConfig = false,
@@ -35,7 +35,7 @@ local Tab = Window:MakeTab({
 })
 
 local Section = Tab:AddSection({
-	Name = "Blatant Stuff (not arsed to show fps lmao)"
+	Name = "Blatant Stuff"
 })
 
 --
