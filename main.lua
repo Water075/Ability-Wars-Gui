@@ -43,7 +43,7 @@ local PunchesLabel = Tab:AddLabel("Punches:")
 local PlayersLabel = Tab:AddLabel("Players: ?/18")
 local AbilityLabel = Tab:AddLabel("Ability:")
 local HealthLabel = Tab:AddLabel("Health:")
-local ServerAgeLabel = Tab:AddLabel("ServerAge:")
+local ServerAgeLabel = Tab:AddLabel("PlaceHolder")
 
 local updating = false
 
@@ -77,7 +77,7 @@ Tab:AddToggle({
 					PunchesLabel:Set("Punches: " .. punchesVal)
 					PlayersLabel:Set("Players: " .. players .. "/18")
 					AbilityLabel:Set("Ability: " .. abilityVal)
-					ServerAgeLabel:Set("ServerAge:" .. serverage)
+					ServerAgeLabel:Set(serverage)
 					HealthLabel:Set(healthText)
 
 					task.wait(0.4)
