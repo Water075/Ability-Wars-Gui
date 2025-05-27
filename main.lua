@@ -22,7 +22,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 })
 
 local Window = OrionLib:MakeWindow({
-    Name = "AbilityWars - " ..executorName,
+    Name = "Ability Wars - " ..executorName,
     IntroEnabled = false,
     HidePremium = false,
     SaveConfig = false,
