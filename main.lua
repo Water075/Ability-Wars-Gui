@@ -299,6 +299,15 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
+Tab:AddButton({
+	Name = "Get Kick ability",
+	Callback = function()
+local cd = workspace["Shop Items"]["Gain Kick"].ClickDetector
+fireclickdetector(cd)
+  	end    
+})
+
+
 local Section = Tab:AddSection({
 	Name = "badges"
 })
