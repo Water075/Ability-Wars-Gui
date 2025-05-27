@@ -308,6 +308,7 @@ Tab:AddButton({
             workspace["Map Items"].Key,
             workspace["Map Items"].Web,
             workspace["Map Items"].Moss,
+	    workspace["Map Items"].Pizza["Pizza Hitbox"],
         }
 
         for _, item in ipairs(items) do
