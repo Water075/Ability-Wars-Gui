@@ -291,6 +291,12 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
+local Section = Tab:AddSection({
+	Name = "badges"
+})
+
+--
+
 Tab:AddButton({
     Name = "Collect All Items",
     Callback = function()
@@ -322,16 +328,18 @@ Tab:AddButton({
 Tab:AddButton({
 	Name = "Teleport for mushroom badge",
 	Callback = function()
-			local newpos = 130.931061, 8.0490036, -126.418747
-			local currentpos = nil
-			local hrp = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
-			if hrp then
-				currentpos = hrp.CFrame
-			hrp.CFrame = CFrame.new(130.931061, 8.0490036, -126.418747)
-				wait(0.7)
+		local teleportPosition = Vector3.new(130.931061, 8.0490036, -126.418747)
+		local hrp = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+
+		if hrp then
+			local currentpos = hrp.CFrame
+			hrp.CFrame = CFrame.new(teleportPosition)
+			wait(0.7)
 			hrp.CFrame = currentpos
-  	end    
+		end
+	end    
 })
+
 -- credits
 local Tab = Window:MakeTab({
 	Name = "credits",
