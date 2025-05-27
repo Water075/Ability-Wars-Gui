@@ -320,7 +320,30 @@ local Section = Tab:AddSection({
 })
 
 --
-
+Tab:AddButton({
+	Name = "Teleport to Brewing Place",
+	Callback = function()
+-- -19.3448524, 20.9534607, 113.651253, 0.99984771
+Tab:AddButton({
+    Name = "Teleport to Brewing Place",
+    Callback = function()
+        local hrp = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+        if hrp then
+            hrp.CFrame = CFrame.new(-19.3448524, 20.9534607, 113.651253)
+        end
+    end
+})
+--
+Tab:AddButton({
+    Name = "Teleport to Portal Mastery Area ",
+    Callback = function()
+        local hrp = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+        if hrp then
+            hrp.CFrame = CFrame.new(990.469788, 65.876236, 29967.1836)
+        end
+    end
+})
+--
 Tab:AddButton({
     Name = "Collect All Items",
     Callback = function()
@@ -352,7 +375,7 @@ Tab:AddButton({
 Tab:AddButton({
 	Name = "Teleport for mushroom badge",
 	Callback = function()
-		local teleportPosition = Vector3.new(140.185455, 7.77817154, -143.69104)
+		local teleportPosition = Vector3.new(140.185455, 7.77817154, -143.69104) -- fuckass game changes it now and then so like this is somewhat pointless
 		local hrp = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
 
 		if hrp then
