@@ -305,7 +305,7 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-
+--
 Tab:AddButton({
 	Name = "Get Kick ability",
 	Callback = function()
@@ -313,8 +313,7 @@ local cd = workspace["Shop Items"]["Gain Kick"].ClickDetector
 fireclickdetector(cd)
   	end    
 })
-
-
+--
 local Section = Tab:AddSection({
 	Name = "badges"
 })
@@ -355,7 +354,16 @@ Tab:AddButton({
         end
     end
 })
-
+--
+Tab:AddButton({
+    Name = "Teleport to Rift",
+    Callback = function()
+        local hrp = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+        if hrp then
+            hrp.CFrame = CFrame.new(-27786.30078125, 465.74456787109375, 57964.6875)
+			end
+    end
+})
 --
 Tab:AddButton({
     Name = "Collect All Items",
