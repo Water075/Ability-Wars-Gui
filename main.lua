@@ -336,7 +336,7 @@ Tab:AddButton({
 Tab:AddButton({
 	Name = "Teleport for mushroom badge",
 	Callback = function()
-		local teleportPosition = Vector3.new(130.931061, 8.0490036, -126.418747)
+		local teleportPosition = Vector3.new(140.185455, 7.77817154, -143.69104)
 		local hrp = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
 
 		if hrp then
