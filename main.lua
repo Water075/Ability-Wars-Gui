@@ -331,14 +331,31 @@ Tab:AddButton({
 })
 --
 Tab:AddButton({
-    Name = "Teleport to Portal Mastery Area ",
+    Name = "Teleport to Portal Mastery Area",
     Callback = function()
-        local hrp = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+        local player = game:GetService("Players").LocalPlayer
+        local hrp = player.Character and player.Character:WaitForChild("HumanoidRootPart")
+        local workspace = game:GetService("Workspace")
+
         if hrp then
+            local key = workspace["Map Items"]:FindFirstChild("Key")
+            local door = workspace.Secrets:FindFirstChild("Astral Door Hitbox")
+
+            if key and door then
+                firetouchinterest(hrp, key, 0)
+                task.wait(0.1)
+                firetouchinterest(hrp, key, 1)
+
+                firetouchinterest(hrp, door, 0)
+                task.wait(0.1)
+                firetouchinterest(hrp, door, 1)
+            end
+
             hrp.CFrame = CFrame.new(-87.1038666, 19.8535614, 126.390503)
-			end
+        end
     end
 })
+
 --
 Tab:AddButton({
     Name = "Collect All Items",
