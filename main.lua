@@ -330,6 +330,8 @@ Tab:AddButton({
         local hrp = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
         if hrp then
             hrp.CFrame = CFrame.new(-19.3448524, 20.9534607, 113.651253)
+		   else
+	    return
         end
     end
 })
@@ -340,6 +342,8 @@ Tab:AddButton({
         local hrp = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
         if hrp then
             hrp.CFrame = CFrame.new(990.469788, 65.876236, 29967.1836)
+		    else
+	    return
         end
     end
 })
