@@ -210,43 +210,45 @@ Tab:AddToggle({
             return parent:FindFirstChild(childName)
         end
 
-        local cat = waitForChildWithTimeout(workspace, "Cat", 5)
-        local treeLord = waitForChildWithTimeout(workspace, "Tree Lord", 5)
+        -- Run this in a coroutine so it can loop independently
+        task.spawn(function()
+            while autoattackbossesstate do
+                local cat = workspace:FindFirstChild("Cat")
+                local treeLord = workspace:FindFirstChild("Tree Lord")
 
-        if not cat or not treeLord then
-            warn("Cat or Tree Lord not found.")
-            return
-        end
+                -- Try to attack Cat if it's available
+                if cat then
+                    local catHRP = cat:FindFirstChild("HumanoidRootPart")
+                    if catHRP then
+                        local args1 = {
+                            314159265359,
+                            cat,
+                            Vector3.new(-11.640410423278809, 7.153537273406982, -17.10407829284668),
+                            100,
+                            catHRP
+                        }
+                        game:GetService("ReplicatedStorage"):WaitForChild("Remote Events"):WaitForChild("Punch"):FireServer(unpack(args1))
+                    end
+                end
 
-        local catHRP = waitForChildWithTimeout(cat, "HumanoidRootPart", 5)
-        local treeLordRightLeg = waitForChildWithTimeout(treeLord, "Right Leg", 5)
+                -- Try to attack Tree Lord if it's available
+                if treeLord then
+                    local treeLordRightLeg = treeLord:FindFirstChild("Right Leg")
+                    if treeLordRightLeg then
+                        local args2 = {
+                            314159265359,
+                            treeLord,
+                            Vector3.new(0.21670854091644287, 7.1301350593566895, 3.293504238128662),
+                            100,
+                            treeLordRightLeg
+                        }
+                        game:GetService("ReplicatedStorage"):WaitForChild("Remote Events"):WaitForChild("Punch"):FireServer(unpack(args2))
+                    end
+                end
 
-        if not catHRP or not treeLordRightLeg then
-            warn("Required parts not found.")
-            return
-        end
-
-        while autoattackbossesstate do
-            local args1 = {
-                314159265359,
-                cat,
-                vector.create(-11.640410423278809, 7.153537273406982, -17.10407829284668),
-                100,
-                catHRP
-            }
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote Events"):WaitForChild("Punch"):FireServer(unpack(args1))
-
-            local args2 = {
-                314159265359,
-                treeLord,
-                vector.create(0.21670854091644287, 7.1301350593566895, 3.293504238128662),
-                100,
-                treeLordRightLeg
-            }
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote Events"):WaitForChild("Punch"):FireServer(unpack(args2))
-
-            task.wait()
-        end
+                task.wait()
+            end
+        end)
     end    
 })
 --
