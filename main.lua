@@ -319,10 +319,6 @@ local Section = Tab:AddSection({
 	Name = "badges"
 })
 
---
-Tab:AddButton({
-	Name = "Teleport to Brewing Place",
-	Callback = function()
 -- -19.3448524, 20.9534607, 113.651253, 0.99984771
 Tab:AddButton({
     Name = "Teleport to Brewing Place",
@@ -330,6 +326,7 @@ Tab:AddButton({
         local hrp = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
         if hrp then
             hrp.CFrame = CFrame.new(-19.3448524, 20.9534607, 113.651253)
+			end
     end
 })
 --
@@ -339,6 +336,7 @@ Tab:AddButton({
         local hrp = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
         if hrp then
             hrp.CFrame = CFrame.new(990.469788, 65.876236, 29967.1836)
+			end
     end
 })
 --
