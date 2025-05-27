@@ -43,6 +43,8 @@ local PunchesLabel = Tab:AddLabel("Punches:")
 local PlayersLabel = Tab:AddLabel("Players: ?/18")
 local AbilityLabel = Tab:AddLabel("Ability:")
 local HealthLabel = Tab:AddLabel("Health:")
+local ServerAgeLabel = Tab:AddLabel("ServerAge:")
+
 local updating = false
 
 Tab:AddToggle({
@@ -58,7 +60,8 @@ Tab:AddToggle({
 
 					local punches = player:FindFirstChild("leaderstats") and player.leaderstats:FindFirstChild("Punches")
 					local ability = player.leaderstats and player.leaderstats:FindFirstChild("Ability")
-
+					local serverage = game:GetService("Players").LocalPlayer.PlayerGui.Settings.Main.Age.Text
+							
 					local punchesVal = punches and punches.Value or "N/A"
 					local abilityVal = ability and ability.Value or "N/A"
 
@@ -74,6 +77,7 @@ Tab:AddToggle({
 					PunchesLabel:Set("Punches: " .. punchesVal)
 					PlayersLabel:Set("Players: " .. players .. "/18")
 					AbilityLabel:Set("Ability: " .. abilityVal)
+					ServerAgeLabel:Set("ServerAge:" .. serverage)
 					HealthLabel:Set(healthText)
 
 					task.wait(0.4)
