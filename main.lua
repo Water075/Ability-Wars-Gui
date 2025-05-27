@@ -329,7 +329,7 @@ Tab:AddButton({
 				currentpos = hrp.CFrame
 			hrp.CFrame = CFrame.new(130.931061, 8.0490036, -126.418747)
 				wait(0.7)
-			hrp.CFrame = currentpos.CFrame
+			hrp.CFrame = currentpos
   	end    
 })
 -- credits
