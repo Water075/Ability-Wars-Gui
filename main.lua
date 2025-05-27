@@ -44,6 +44,7 @@ local PlayersLabel = Tab:AddLabel("Players: ?/18")
 local AbilityLabel = Tab:AddLabel("Ability:")
 local HealthLabel = Tab:AddLabel("Health:")
 local updating = false
+
 Tab:AddToggle({
 	Name = "UpdateInfo",
 	Default = true,
@@ -53,20 +54,34 @@ Tab:AddToggle({
 			task.spawn(function()
 				while updating do
 					local players = #game:GetService("Players"):GetPlayers()
-					local punches = game:GetService("Players").LocalPlayer.leaderstats.Punches.Value
-					local ability = game:GetService("Players").LocalPlayer.leaderstats.Ability.Value
-					local health = game.Players.LocalPlayer.Character.Health
-					PunchesLabel:Set("Punches: " .. punches)
+					local player = game.Players.LocalPlayer
+
+					local punches = player:FindFirstChild("leaderstats") and player.leaderstats:FindFirstChild("Punches")
+					local ability = player.leaderstats and player.leaderstats:FindFirstChild("Ability")
+
+					local punchesVal = punches and punches.Value or "N/A"
+					local abilityVal = ability and ability.Value or "N/A"
+
+					local healthText = "Health: N/A"
+					local character = player.Character
+					if character then
+						local humanoid = character:FindFirstChildOfClass("Humanoid")
+						if humanoid then
+							healthText = "Health: " .. math.floor(humanoid.Health) .. "/100"
+						end
+					end
+
+					PunchesLabel:Set("Punches: " .. punchesVal)
 					PlayersLabel:Set("Players: " .. players .. "/18")
-					AbilityLabel:Set("Ability: " .. ability)
-					HealthLabel:Set("Health:" .. health .. "/100")
+					AbilityLabel:Set("Ability: " .. abilityVal)
+					HealthLabel:Set(healthText)
+
 					task.wait(0.4)
 				end
 			end)
 		end
 	end
 })
-
 -- toggle2 for auto entering arena
 local autoEnter = false
 
