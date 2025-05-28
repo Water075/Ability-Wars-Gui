@@ -42,11 +42,7 @@ local Section = Tab:AddSection({
 	Name = "Blatant Stuff"
 })
 --
-game:GetService("StarterGui"):SetCore("SendNotification", {
-    Title = "Ability Wars",
-    Text = "Loading script be patient!",
-    Duration = 5
-})
+print("Thanks for using the script :D")
 --
 local PunchesLabel = Tab:AddLabel("Punches:")
 local PlayersLabel = Tab:AddLabel("Players: ?/18")
