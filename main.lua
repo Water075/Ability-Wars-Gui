@@ -211,13 +211,10 @@ Tab:AddToggle({
             return parent:FindFirstChild(childName)
         end
 
-        -- Run this in a coroutine so it can loop independently
         task.spawn(function()
             while autoattackbossesstate do
                 local cat = workspace:FindFirstChild("Cat")
                 local treeLord = workspace:FindFirstChild("Tree Lord")
-
-                -- Try to attack Cat if it's available
                 if cat then
                     local catHRP = cat:FindFirstChild("HumanoidRootPart")
                     if catHRP then
@@ -231,8 +228,6 @@ Tab:AddToggle({
                         game:GetService("ReplicatedStorage"):WaitForChild("Remote Events"):WaitForChild("Punch"):FireServer(unpack(args1))
                     end
                 end
-
-                -- Try to attack Tree Lord if it's available
                 if treeLord then
                     local treeLordRightLeg = treeLord:FindFirstChild("Right Leg")
                     if treeLordRightLeg then
